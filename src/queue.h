@@ -14,8 +14,8 @@ typedef struct queueTag{
 
 queue Queue;
 
-void generate_ticket();
-void call_next_ticket();
-void print_ticket_board();
+void generate_ticket(void);
+void call_next_ticket(void);
+void print_ticket_board(void);
 
 #endif //QUEUE_H_INCLUDED
