@@ -1,25 +1,26 @@
 <mxfile>
     <diagram id="H-UX-bx4Hc4YwCfj1C0T" name="Objetos">
-        <mxGraphModel dx="798" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="798" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="5" edge="1">
+                <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="250" y="105" as="targetPoint"/>
+                        <mxPoint x="170" y="105" as="sourcePoint"/>
                     </mxGeometry>
-                </mxCell>
-                <mxCell id="2" value="Fila: ItemFila[]" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="80" width="110" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="&lt;p style=&quot;margin: 0px ; margin-top: 6px ; text-align: center&quot;&gt;&lt;b&gt;Struct: ItemFila&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;+ IsPriority: Boolean&lt;br&gt;+ Number: UInt&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;" parent="1" vertex="1">
                     <mxGeometry x="310" y="60" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;p style=&quot;margin: 0px ; margin-top: 6px ; text-align: center&quot;&gt;&lt;b&gt;Struct: Fila&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;+ Items: ItemFila[]&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;--------------------------------&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;- Gerar()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;- Chamar()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;- Imprimir_Senhas()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="60" width="160" height="140" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="KpJzvfNAqQtKomHXxsy8" name="Geração">
-        <mxGraphModel dx="1766" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1967" dy="514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="UH5I6xb5ytzm1GLyZQHh-0"/>
                 <mxCell id="UH5I6xb5ytzm1GLyZQHh-1" parent="UH5I6xb5ytzm1GLyZQHh-0"/>
@@ -47,7 +48,7 @@
                         <mxPoint x="490" y="380" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="UH5I6xb5ytzm1GLyZQHh-5" value="Inserir após o último prioritário" style="whiteSpace=wrap;html=1;" parent="UH5I6xb5ytzm1GLyZQHh-1" vertex="1">
+                <mxCell id="UH5I6xb5ytzm1GLyZQHh-5" value="Insere após o último prioritário" style="whiteSpace=wrap;html=1;" parent="UH5I6xb5ytzm1GLyZQHh-1" vertex="1">
                     <mxGeometry x="560" y="75" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="NOC0vEkSHNLShldRBLR6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="UH5I6xb5ytzm1GLyZQHh-1" source="UH5I6xb5ytzm1GLyZQHh-7" target="NOC0vEkSHNLShldRBLR6-6" edge="1">
@@ -96,7 +97,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="aihHtouqyudgMX7-Er_P" name="Chamada">
-        <mxGraphModel dx="798" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="798" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="DObUNgYAX8vtzH-nEzaS-0"/>
                 <mxCell id="DObUNgYAX8vtzH-nEzaS-1" parent="DObUNgYAX8vtzH-nEzaS-0"/>
@@ -122,7 +123,7 @@
                         <mxPoint x="362.42640687119297" y="341.715728752538" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="YxTifZSVBa5M2Ra1nn7D-7" value="Insira o número gichê de chamada" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="DObUNgYAX8vtzH-nEzaS-1" vertex="1">
+                <mxCell id="YxTifZSVBa5M2Ra1nn7D-7" value="Insira o gichê de chamada" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="DObUNgYAX8vtzH-nEzaS-1" vertex="1">
                     <mxGeometry x="440" y="200" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="YxTifZSVBa5M2Ra1nn7D-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="DObUNgYAX8vtzH-nEzaS-1" source="YxTifZSVBa5M2Ra1nn7D-11" target="YxTifZSVBa5M2Ra1nn7D-12" edge="1">
@@ -140,8 +141,8 @@
             </root>
         </mxGraphModel>
     </diagram>
-    <diagram id="UqMCuadBAFJTj9nRv2lw" name="Impressão Senhas">
-        <mxGraphModel dx="798" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <diagram id="UqMCuadBAFJTj9nRv2lw" name="Impressão">
+        <mxGraphModel dx="798" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="XR_DSFAK_g_O1x7kfTtM-0"/>
                 <mxCell id="XR_DSFAK_g_O1x7kfTtM-1" parent="XR_DSFAK_g_O1x7kfTtM-0"/>
@@ -164,7 +165,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="GhKmdM0NSmOwphlkkYdu" name="Gerar numero de senha">
-        <mxGraphModel dx="798" dy="1786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="798" dy="1529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="xSPMgKyC4YUFdpYfQJ48-0"/>
                 <mxCell id="xSPMgKyC4YUFdpYfQJ48-1" parent="xSPMgKyC4YUFdpYfQJ48-0"/>
