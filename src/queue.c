@@ -125,12 +125,7 @@ void __print_ticket(queueItem queueItem){
 }
 
 void __pop(){
-    if (firstItem->nextItem == NULL){
-        firstItem = NULL;
-    }
-    else{
-        firstItem = firstItem->nextItem;
-    }
+    firstItem = firstItem->nextItem;
 }
 
 void call_next_item(){
