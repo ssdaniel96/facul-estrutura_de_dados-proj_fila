@@ -5,14 +5,11 @@ struct queueItem ;
 typedef struct queueItemTag{
     int isPriority;
     int number;
+    struct queueItem *nextItem;
 } queueItem;
 
-struct queue ;
-typedef struct queueTag{
-    struct queueItem *items;
-} queue;
-
-queue Queue;
+queueItem *firstItem;
+queueItem *lastItem;
 
 void generate_ticket();
 void call_next_ticket();
