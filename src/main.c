@@ -39,15 +39,16 @@ void chosen_menu(){
     switch (option)
     {
     case 1:
-        generate_ticket();
+        generate();
         break;
     case 2:
-        call_next_ticket();
+        call_next();
         break;
     case 3:
-        printf("Board aqui");
+        print_board();
         break;
     }
+    system("pause");
 }
 
 void execute_menu(){

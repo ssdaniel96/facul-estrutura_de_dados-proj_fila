@@ -7,6 +7,7 @@ queueItem *__newQueueItem(int ticketNumber, int isPriority){
     queueItem *newQueueItem = (queueItem*)malloc(sizeof(queueItem));
     newQueueItem->number = ticketNumber;
     newQueueItem->isPriority = isPriority;
+    newQueueItem->nextItem = NULL;
     return newQueueItem;
 }
 
@@ -56,12 +57,13 @@ int __generate_ticket_number(){
     return ticket_number;
 }
 
-queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem *previousItem){
+queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem **previousItem){
     if (firstItem->isPriority == 1){
         if (firstItem->nextItem == NULL){
             return NULL;
         }
-        return __getFirstNoPriority((queueItem *)firstItem->nextItem, firstItem);
+        *previousItem = firstItem;
+        return __getFirstNoPriority((queueItem *)firstItem->nextItem, previousItem);
     }
     return firstItem;
 }
@@ -71,8 +73,8 @@ void __add_after_all_priorities(queueItem *firstItem, queueItem *newItem){
         exit(1);
     }
 
-    queueItem *previousItem = NULL;
-    queueItem *actualItem = __getFirstNoPriority(firstItem, previousItem);
+    queueItem *previousItem;
+    queueItem *actualItem = __getFirstNoPriority(firstItem, &previousItem);
     if (actualItem == NULL){
         lastItem->nextItem = newItem;
         lastItem = newItem;
@@ -89,7 +91,7 @@ queueItem *__create_ticket(){
     return __newQueueItem(ticketNumber, isPriority);
 }
 
-void generate_ticket(){
+void generate(void){
     queueItem *newQueueItem = __create_ticket();
 
     if (firstItem == NULL){
@@ -133,7 +135,33 @@ void __pop(){
     free(oldFirstITem);
 }
 
-void call_next_ticket(){
+void call_next(void){
     __print_ticket(firstItem);
     __pop();
+}
+
+void __print_board_header(){
+    printf("Posicao\tSenha\tTipo\n");
+}
+
+char *__get_type_attendance_description(int isPriority){
+    if (isPriority == 1){
+        return "Prioritário";
+    }
+    else{
+        return "Normal";
+    }
+}
+
+void __print_board_tickets(queueItem *item, int position){
+    char *tipo_atendimento = __get_type_attendance_description(item->isPriority);
+    printf("%d\t%d\t%s\n", position+1, item->number, tipo_atendimento);
+    if (item->nextItem != NULL){
+        __print_board_tickets(item->nextItem, position+1);
+    }
+}
+
+void print_board(){
+    __print_board_header();
+    __print_board_tickets(firstItem, 0);
 }
