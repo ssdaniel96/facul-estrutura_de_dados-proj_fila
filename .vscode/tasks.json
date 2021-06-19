@@ -6,7 +6,8 @@
             "command": "C:\\MinGW\\bin\\gcc.exe",
             "args": [
                 "-g",
-                "${file}",
+                "${fileDirname}\\**.c",
+                "${fileDirname}\\**.h",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
@@ -22,6 +23,7 @@
             },
             "detail": "Tarefa gerada pelo Depurador."
         }
+
     ],
     "version": "2.0.0"
 }

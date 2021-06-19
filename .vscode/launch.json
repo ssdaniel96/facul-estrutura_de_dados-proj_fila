@@ -8,7 +8,7 @@
             "name": "gcc.exe - Criar e depurar o arquivo ativo",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\a.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            // "preLaunchTask": "C/C++: gcc.exe arquivo de build ativo"
+            "preLaunchTask": "C/C++: gcc.exe arquivo de build ativo"
         }
     ]
 }

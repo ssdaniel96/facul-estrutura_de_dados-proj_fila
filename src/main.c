@@ -1,13 +1,41 @@
 #include <stdio.h>
 #include "queue.h"
+#include <stdlib.h>
 
-int main() {
-    printf("Hello world");
-    generate_ticket();
-    call_next_ticket();
+void clear_screen()
+{
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system ("clear");
+    #endif
 }
 
-void chosen_menu(int option){
+void get_menu(){
+    clear_screen();
+    printf("Super senha 3.000\n");
+    printf("1 - Gerar nova senha\n");
+    printf("2 - Chamar proxima senha\n");
+    printf("3 - Imprimir senhas\n");
+    printf("4 - Encerrar\n");
+}
+
+int get_menu_option(){
+    int value;
+    printf("Digite a opcao (1 a 4): ");
+    scanf("%d", &value);
+    printf("\n");
+    if (value < 1 || value > 4){
+        printf("Opcao invalida!\n");
+        system("pause");
+        value = get_menu_option();
+    }
+    return value;
+}
+
+
+void chosen_menu(){
+    int option = get_menu_option();
     switch (option)
     {
     case 1:
@@ -19,9 +47,17 @@ void chosen_menu(int option){
     case 3:
         printf("Board aqui");
         break;
-    default:
-        printf("Escolha uma opcao valida! (1 a 3)\n");
-        chosen_menu(option);
-        break;
     }
+}
+
+void execute_menu(){
+    int execute = 1;
+    while(execute == 1){
+        get_menu();
+        chosen_menu();
+    }
+}
+
+int main() {
+    execute_menu();
 }

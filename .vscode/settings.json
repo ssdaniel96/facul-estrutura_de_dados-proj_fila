@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "type_traits": "c",
-        "xtr1common": "c"
+        "xtr1common": "c",
+        "cstdlib": "c"
     }
 }
