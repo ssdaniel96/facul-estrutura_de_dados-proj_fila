@@ -34,8 +34,9 @@ int get_menu_option(){
 }
 
 
-void chosen_menu(){
+int chosen_menu(){
     int option = get_menu_option();
+    int run = 1;
     switch (option)
     {
     case 1:
@@ -47,15 +48,18 @@ void chosen_menu(){
     case 3:
         print_board();
         break;
+    case 4:
+        run = 0;
     }
     system("pause");
+    return run;
 }
 
 void execute_menu(){
-    int execute = 1;
-    while(execute == 1){
+    int run = 1;
+    while(run == 1){
         get_menu();
-        chosen_menu();
+        run = chosen_menu();
     }
 }
 
