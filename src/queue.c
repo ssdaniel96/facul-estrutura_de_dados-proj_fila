@@ -120,6 +120,15 @@ int __get_giche(){
     return value;
 }
 
+int __check_empty_queue(){
+    if (firstItem == NULL){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
 void __print_ticket(queueItem *queueItem){
     int giche_number = __get_giche();
     printf("NOVA CHAMADA\n");
@@ -136,6 +145,10 @@ void __pop(){
 }
 
 void call_next(void){
+    if(__check_empty_queue()){
+        printf("A fila está vazia! Gere uma senha!\n");
+        return;
+    }
     __print_ticket(firstItem);
     __pop();
 }
@@ -162,6 +175,10 @@ void __print_board_tickets(queueItem *item, int position){
 }
 
 void print_board(){
+    if (__check_empty_queue()){
+        printf("A fila está vazia! Não há senhas para mostrar!\n");
+        return;
+    }
     __print_board_header();
     __print_board_tickets(firstItem, 0);
 }
