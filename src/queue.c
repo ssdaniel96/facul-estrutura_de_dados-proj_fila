@@ -68,8 +68,9 @@ queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem **previousItem){
     return firstItem;
 }
 
-void __add_after_all_priorities(queueItem *firstItem, queueItem *newItem){
+void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
     if (newItem->isPriority == 0){
+        printf("Esse item sem prioridade deveria ser adicionado no final\nEncerrando execucao\n");
         exit(1);
     }
 
@@ -107,7 +108,7 @@ void generate(void){
         firstItem = newQueueItem;
     }
     else{
-        __add_after_all_priorities(firstItem, newQueueItem);
+        __add_after_all_priority(firstItem, newQueueItem);
     }
 }
 

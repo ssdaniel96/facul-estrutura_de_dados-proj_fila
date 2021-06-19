@@ -22,6 +22,7 @@ void get_menu(){
 
 int get_menu_option(){
     int value;
+    fflush(stdin);
     printf("Digite a opcao (1 a 4): ");
     scanf("%d", &value);
     printf("\n");
