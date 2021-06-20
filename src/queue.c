@@ -118,6 +118,10 @@ int __get_giche(){
     fflush(stdin);
     scanf("%d", &value);
     printf("\n");
+    if (value < 1){
+        printf("O número do gichê deve ser igual ou maior que 1\n");
+        value = __get_giche();
+    }    
     return value;
 }
 
