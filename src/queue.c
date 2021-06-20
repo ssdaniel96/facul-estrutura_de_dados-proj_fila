@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <time.h>
 
-//TESTE
-
 queueItem *__newQueueItem(int ticketNumber, int isPriority){
     queueItem *newQueueItem = (queueItem*)malloc(sizeof(queueItem));
     newQueueItem->number = ticketNumber;
