@@ -18,14 +18,14 @@ int __getTrueOrFalse(char message[255]){
     scanf("%d", &value);
     printf("\n");
     if (value > 1 || value < 0){
-        printf("Os valores só podem ser 0 ou 1! Tente Novamente!\n");
+        printf("Os valores devem ser 0 ou 1! Tente Novamente!\n");
         value = __getTrueOrFalse(message);
     }
     return value;
 }
 
 int __getIsPriority(){
-    return __getTrueOrFalse("Digite o tipo de atendimento.\n\t0 - Normal\n\t1 - Prioritário\nAtendimento: ");
+    return __getTrueOrFalse("Digite o tipo de atendimento.\n\t0 - Normal\n\t1 - Prioritario\nAtendimento: ");
 }
 
 int __generate_random_number(int indexOf, int indexTo){
@@ -70,7 +70,7 @@ queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem **previousItem){
 
 void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
     if (newItem->isPriority == 0){
-        printf("Esse item sem prioridade deveria ser adicionado no final da fila!\nEncerrando a execução por erro!\n");
+        printf("Esse item sem prioridade deveria ser adicionado no final da fila!\nEncerrando o programa por erro!\n");
         exit(1);
     }
 
@@ -114,12 +114,12 @@ void generate(void){
 
 int __get_giche(){
     int value;
-    printf("Por favor digite o gichê: ");
+    printf("Por favor digite o giche: ");
     fflush(stdin);
     scanf("%d", &value);
     printf("\n");
     if (value < 1){
-        printf("O número do gichê deve ser maior ou igual a 1.\n");
+        printf("O valor deve ser maior ou igual a 1.\n");
         value = __get_giche();
     }    
     return value;
@@ -137,7 +137,7 @@ int __check_empty_queue(){
 void __print_ticket(queueItem *queueItem){
     int giche_number = __get_giche();
     printf("NOVA CHAMADA\n");
-    printf("Senha: %d\tGichê: %d\n", queueItem->number, giche_number);
+    printf("Senha: %d\tGiche: %d\n", queueItem->number, giche_number);
 }
 
 void __pop(){
@@ -151,7 +151,7 @@ void __pop(){
 
 void call_next(void){
     if(__check_empty_queue()){
-        printf("A fila está vazia! Gere uma senha!\n");
+        printf("Fila vazia! Gere uma senha!\n");
         return;
     }
     __print_ticket(firstItem);
@@ -159,12 +159,12 @@ void call_next(void){
 }
 
 void __print_board_header(){
-    printf("Posição\tSenha\tTipo\n");
+    printf("Posicao\tSenha\tTipo\n");
 }
 
 char *__get_type_attendance_description(int isPriority){
     if (isPriority == 1){
-        return "Prioritário";
+        return "Prioritario";
     }
     else{
         return "Normal";
@@ -181,7 +181,7 @@ void __print_board_tickets(queueItem *item, int position){
 
 void print_board(){
     if (__check_empty_queue()){
-        printf("A fila está vazia! Não há senhas para mostrar!\n");
+        printf("Fila vazia!\n");
         return;
     }
     __print_board_header();
