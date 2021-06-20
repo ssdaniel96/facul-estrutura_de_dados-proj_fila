@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "queue.h"
 #include <stdlib.h>
+#include <locale.h>
 
 void clear_screen()
 {
@@ -13,9 +14,9 @@ void clear_screen()
 
 void get_menu(){
     clear_screen();
-    printf("Super senha 3.000\n");
+    printf("SUPER FILA SX 3.000\n");
     printf("1 - Gerar nova senha\n");
-    printf("2 - Chamar proxima senha\n");
+    printf("2 - Chamar próxima senha\n");
     printf("3 - Imprimir senhas\n");
     printf("4 - Encerrar\n");
 }
@@ -27,7 +28,7 @@ int get_menu_option(){
     scanf("%d", &value);
     printf("\n");
     if (value < 1 || value > 4){
-        printf("Opcao invalida!\n");
+        printf("Opção inválida! Só serão aceitos valores de 1 a 4.\n");
         system("pause");
         value = get_menu_option();
     }
@@ -65,5 +66,6 @@ void execute_menu(){
 }
 
 int main() {
+    setlocale(LC_ALL, "Portuguese");
     execute_menu();
 }

@@ -18,14 +18,14 @@ int __getTrueOrFalse(char message[255]){
     scanf("%d", &value);
     printf("\n");
     if (value > 1 || value < 0){
-        printf("Erro, digite o valor corretamente!\n");
+        printf("Os valores só podem ser 0 ou 1! Tente Novamente!\n");
         value = __getTrueOrFalse(message);
     }
     return value;
 }
 
 int __getIsPriority(){
-    return __getTrueOrFalse("Digite o tipo de atendimento.\n\t0 - Atendimento Normal\n\t1 - Atendimento prioritário\nAtendimento: ");
+    return __getTrueOrFalse("Digite o tipo de atendimento.\n\t0 - Normal\n\t1 - Prioritário\nAtendimento: ");
 }
 
 int __generate_random_number(int indexOf, int indexTo){
@@ -70,7 +70,7 @@ queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem **previousItem){
 
 void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
     if (newItem->isPriority == 0){
-        printf("Esse item sem prioridade deveria ser adicionado no final\nEncerrando execucao\n");
+        printf("Esse item sem prioridade deveria ser adicionado no final da fila!\nEncerrando a execução por erro!\n");
         exit(1);
     }
 
@@ -119,7 +119,7 @@ int __get_giche(){
     scanf("%d", &value);
     printf("\n");
     if (value < 1){
-        printf("O número do gichê deve ser igual ou maior que 1\n");
+        printf("O número do gichê deve ser maior ou igual a 1.\n");
         value = __get_giche();
     }    
     return value;
@@ -137,7 +137,7 @@ int __check_empty_queue(){
 void __print_ticket(queueItem *queueItem){
     int giche_number = __get_giche();
     printf("NOVA CHAMADA\n");
-    printf("Senha: %d\tGiche: %d\n", queueItem->number, giche_number);
+    printf("Senha: %d\tGichê: %d\n", queueItem->number, giche_number);
 }
 
 void __pop(){
@@ -159,7 +159,7 @@ void call_next(void){
 }
 
 void __print_board_header(){
-    printf("Posicao\tSenha\tTipo\n");
+    printf("Posição\tSenha\tTipo\n");
 }
 
 char *__get_type_attendance_description(int isPriority){
