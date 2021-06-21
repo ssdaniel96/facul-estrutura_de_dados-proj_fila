@@ -3,29 +3,12 @@
 #include <stdio.h>
 #include <time.h>
 
-queueItem *__newQueueItem(int ticketNumber, int isPriority){
+queueItem *__new_queue_item(int ticketNumber, int isPriority){
     queueItem *newQueueItem = (queueItem*)malloc(sizeof(queueItem));
     newQueueItem->number = ticketNumber;
     newQueueItem->isPriority = isPriority;
     newQueueItem->nextItem = NULL;
     return newQueueItem;
-}
-
-int __getTrueOrFalse(char message[255]){
-    int value;
-    printf("%s", message);
-    fflush(stdin);
-    scanf("%d", &value);
-    printf("\n");
-    if (value > 1 || value < 0){
-        printf("Os valores devem ser 0 ou 1! Tente Novamente!\n");
-        value = __getTrueOrFalse(message);
-    }
-    return value;
-}
-
-int __getIsPriority(){
-    return __getTrueOrFalse("Digite o tipo de atendimento.\n\t0 - Normal\n\t1 - Prioritario\nAtendimento: ");
 }
 
 int __generate_random_number(int indexOf, int indexTo){
@@ -57,13 +40,13 @@ int __generate_ticket_number(){
     return ticket_number;
 }
 
-queueItem *__getFirstNoPriority(queueItem *firstItem, queueItem **previousItem){
+queueItem *__get_first_unpriority(queueItem *firstItem, queueItem **previousItem){
     if (firstItem->isPriority == 1){
         if (firstItem->nextItem == NULL){
             return NULL;
         }
         *previousItem = firstItem;
-        return __getFirstNoPriority((queueItem *)firstItem->nextItem, previousItem);
+        return __get_first_unpriority((queueItem *)firstItem->nextItem, previousItem);
     }
     return firstItem;
 }
@@ -75,7 +58,7 @@ void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
     }
 
     queueItem *previousItem;
-    queueItem *actualItem = __getFirstNoPriority(firstItem, &previousItem);
+    queueItem *actualItem = __get_first_unpriority(firstItem, &previousItem);
     if (actualItem == NULL){
         lastItem->nextItem = newItem;
         lastItem = newItem;
@@ -86,14 +69,33 @@ void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
     }
 }
 
-queueItem *__create_ticket(){
+queueItem *__create_ticket(int isPriority){
     int ticketNumber = __generate_ticket_number();
-    int isPriority = __getIsPriority();
-    return __newQueueItem(ticketNumber, isPriority);
+    return __new_queue_item(ticketNumber, isPriority);
 }
 
-void generate(void){
-    queueItem *newQueueItem = __create_ticket();
+char *__get_type_attendance_description(int isPriority){
+    if (isPriority == 1){
+        return "Prioritario";
+    }
+    else{
+        return "Normal";
+    }
+}
+
+void __print_ticket(queueItem *item){
+    char *priority_description = __get_type_attendance_description(item->isPriority);
+    printf("Senha: %d\tAtendimento: %s\n", item->number, priority_description);
+}
+
+void __print_registered_ticket(queueItem *item){
+    printf("Senha Cadastrada!\n");
+    printf("Confira sua senha!\n");
+    __print_ticket(item);
+}
+
+void generate(int isPriority){
+    queueItem *newQueueItem = __create_ticket(isPriority);
 
     if (firstItem == NULL){
         firstItem = newQueueItem;
@@ -110,19 +112,7 @@ void generate(void){
     else{
         __add_after_all_priority(firstItem, newQueueItem);
     }
-}
-
-int __get_giche(){
-    int value;
-    printf("Por favor digite o giche: ");
-    fflush(stdin);
-    scanf("%d", &value);
-    printf("\n");
-    if (value < 1){
-        printf("O valor deve ser maior ou igual a 1.\n");
-        value = __get_giche();
-    }    
-    return value;
+    __print_registered_ticket(newQueueItem);
 }
 
 int __check_empty_queue(){
@@ -134,8 +124,7 @@ int __check_empty_queue(){
     }
 }
 
-void __print_ticket(queueItem *queueItem){
-    int giche_number = __get_giche();
+void __print_call_ticket(queueItem *queueItem, int giche_number){
     printf("NOVA CHAMADA\n");
     printf("Senha: %d\tGiche: %d\n", queueItem->number, giche_number);
 }
@@ -149,26 +138,17 @@ void __pop(){
     free(oldFirstITem);
 }
 
-void call_next(void){
+void call_next(int giche_number){
     if(__check_empty_queue()){
         printf("Fila vazia! Gere uma senha!\n");
         return;
     }
-    __print_ticket(firstItem);
+    __print_call_ticket(firstItem, giche_number);
     __pop();
 }
 
 void __print_board_header(){
     printf("Posicao\tSenha\tTipo\n");
-}
-
-char *__get_type_attendance_description(int isPriority){
-    if (isPriority == 1){
-        return "Prioritario";
-    }
-    else{
-        return "Normal";
-    }
 }
 
 void __print_board_tickets(queueItem *item, int position){
