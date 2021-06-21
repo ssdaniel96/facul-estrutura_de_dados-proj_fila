@@ -74,6 +74,15 @@ queueItem *__create_ticket(int isPriority){
     return __newQueueItem(ticketNumber, isPriority);
 }
 
+char *__get_type_attendance_description(int isPriority){
+    if (isPriority == 1){
+        return "Prioritario";
+    }
+    else{
+        return "Normal";
+    }
+}
+
 void __print_ticket(queueItem *item){
     char *priority_description = __get_type_attendance_description(item->isPriority);
     printf("Senha: %d\tAtendimento: %s\n", item->number, priority_description);
@@ -140,15 +149,6 @@ void call_next(int giche_number){
 
 void __print_board_header(){
     printf("Posicao\tSenha\tTipo\n");
-}
-
-char *__get_type_attendance_description(int isPriority){
-    if (isPriority == 1){
-        return "Prioritario";
-    }
-    else{
-        return "Normal";
-    }
 }
 
 void __print_board_tickets(queueItem *item, int position){

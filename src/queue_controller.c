@@ -1,7 +1,7 @@
+#include "domain/queue.h"
+#include "helpers/ascii_art.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "queue.h"
-#include "ascii_art.c";
 
 void clear_screen()
 {
@@ -12,7 +12,7 @@ void clear_screen()
     #endif
 }
 
-void get_menu(){
+void print_menu(){
     clear_screen();
     print_welcome_art();
     printf("\t\t\t\t\t\tESCOLHA SEU SERVICO:\n");
@@ -63,39 +63,46 @@ int __get_giche(){
     return value;
 }
 
+void get_priority_and_generate(){
+    int isPriority = __get_priority();
+    generate(isPriority);
+}
+
+void get_giche_and_call_next(){
+    int giche_number = __get_giche();
+    call_next(giche_number);
+}
 
 
-int chosen_menu(){
-    int option = get_menu_option();
-    int run = 1;
+int execute_menu_option(int option){
     switch (option)
     {
     case 1:
-        generate(__get_priority());
-        print_new_item();
+        get_priority_and_generate();
         break;
     case 2:
-        call_next(__get_giche());
+        get_giche_and_call_next();
         break;
     case 3:
         print_board();
         break;
     case 4:
-        run = 0;
+        return 0;
     }
     system("pause");
-    return run;
+    return 1;
 }
 
-void execute_menu(){
-    int run = 1;
-    while(run == 1){
-        get_menu();
-        run = chosen_menu();
-    }
+int execute_menu(){
+    print_menu();
+    int option = get_menu_option();
+    return execute_menu_option(option);
 }
 
 int main() {
-    execute_menu();
+    int run = 1;
+    while(run == 1){
+        run = execute_menu();
+    }
 }
 
