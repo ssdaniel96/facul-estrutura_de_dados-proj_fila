@@ -13,34 +13,17 @@ void clear_screen()
 
 void get_menu(){
     clear_screen();
-    printf("\t\t\t\t    ##             ## ##                ##\n");
-    printf("\t\t\t\t  # ##            ##   ##             # ##\n");
-    printf("\t\t\t\t ## ##            ##   ##            ## ##\n");
-    printf("\t\t\t\t##  ##            ##   ##           ##  ##\n");
-    printf("\t\t\t\t### ###           ##   ##           ### ###\n");
-    printf("\t\t\t\t    ##            ##   ##               ##\n");
-    printf("\t\t\t\t    ##             ## ##                ##\n");
-
-    printf("\t\t\t######              ###             ##   ##           ### ###\n");
-    printf("\t\t\t ##  ##            ## ##            ###  ##            ## ##\n");
-    printf("\t\t\t ##  ##           ##   ##           #### ##            ####\n");
-    printf("\t\t\t #####            ##   ##           #######            ###\n");
-    printf("\t\t\t ##  ##           #######           ## ####            ####\n");
-    printf("\t\t\t ##  ##           ##   ##           ##  ###            ## ##\n");
-    printf("\t\t\t######            ##   ##           ##   ##           ### ###\n");
-  
-    printf("\n\n\t\t\t\t\t\tESCOLHA SEU SERVICO:\n");
-
-    printf("\n1 - Gerar nova senha\n");
-    printf("\n2 - Chamar senha\n");
-    printf("\n3 - Imprimir senhas\n");
-    printf("\n4 - Encerrar\n");
+    printf("SUPER FILA SX 3.000\n");
+    printf("1 - Gerar nova senha\n");
+    printf("2 - Chamar senha\n");
+    printf("3 - Imprimir senhas\n");
+    printf("4 - Encerrar\n");
 }
 
 int get_menu_option(){
     int value;
     fflush(stdin);
-    printf("\nDigite a escolha (1 a 4): ");
+    printf("Digite a escolha (1 a 4): ");
     scanf("%d", &value);
     printf("\n");
     if (value < 1 || value > 4){
@@ -59,7 +42,6 @@ int chosen_menu(){
     {
     case 1:
         generate();
-        print_new_item();
         break;
     case 2:
         call_next();
