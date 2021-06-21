@@ -136,7 +136,7 @@ int __check_empty_queue(){
 
 void __print_ticket(queueItem *queueItem){
     int giche_number = __get_giche();
-    printf("NOVA CHAMADA\n");
+     printf("NOVA CHAMADA\n");
     printf("Senha: %d\tGiche: %d\n", queueItem->number, giche_number);
 }
 
@@ -154,7 +154,7 @@ void call_next(void){
         printf("Fila vazia! Gere uma senha!\n");
         return;
     }
-    __print_ticket(firstItem);
+    __print_ticket(lastItem);
     __pop();
 }
 
@@ -186,4 +186,16 @@ void print_board(){
     }
     __print_board_header();
     __print_board_tickets(firstItem, 0);
+}
+
+void __find_ticket(queueItem *findItem){
+    char *modalidade = __get_type_attendance_description(findItem->isPriority);
+    printf("Senha: %d\tAtendimento: %s\n", findItem->number, modalidade);
+}
+
+void print_new_item(){
+    printf("Senha Cadastrada!\n");
+    printf("Confira sua senha!\n");
+    __find_ticket(lastItem);
+
 }
