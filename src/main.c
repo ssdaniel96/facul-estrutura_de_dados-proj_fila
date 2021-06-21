@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "queue.h"
 #include <stdlib.h>
+#include "queue.h"
+#include "ascii_art.c";
 
 void clear_screen()
 {
@@ -13,24 +14,8 @@ void clear_screen()
 
 void get_menu(){
     clear_screen();
-    printf("\t\t\t\t    ##             ## ##                ##\n");
-    printf("\t\t\t\t  # ##            ##   ##             # ##\n");
-    printf("\t\t\t\t ## ##            ##   ##            ## ##\n");
-    printf("\t\t\t\t##  ##            ##   ##           ##  ##\n");
-    printf("\t\t\t\t### ###           ##   ##           ### ###\n");
-    printf("\t\t\t\t    ##            ##   ##               ##\n");
-    printf("\t\t\t\t    ##             ## ##                ##\n");
-
-    printf("\t\t\t######              ###             ##   ##           ### ###\n");
-    printf("\t\t\t ##  ##            ## ##            ###  ##            ## ##\n");
-    printf("\t\t\t ##  ##           ##   ##           #### ##            ####\n");
-    printf("\t\t\t #####            ##   ##           #######            ###\n");
-    printf("\t\t\t ##  ##           #######           ## ####            ####\n");
-    printf("\t\t\t ##  ##           ##   ##           ##  ###            ## ##\n");
-    printf("\t\t\t######            ##   ##           ##   ##           ### ###\n");
-  
-    printf("\n\n\t\t\t\t\t\tESCOLHA SEU SERVICO:\n");
-
+    print_welcome_art();
+    printf("\t\t\t\t\t\tESCOLHA SEU SERVICO:\n");
     printf("\n1 - Gerar nova senha\n");
     printf("\n2 - Chamar senha\n");
     printf("\n3 - Imprimir senhas\n");
