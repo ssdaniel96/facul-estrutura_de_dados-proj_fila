@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 
-queueItem *__newQueueItem(int ticketNumber, int isPriority){
+queueItem *__new_queue_item(int ticketNumber, int isPriority){
     queueItem *newQueueItem = (queueItem*)malloc(sizeof(queueItem));
     newQueueItem->number = ticketNumber;
     newQueueItem->isPriority = isPriority;
@@ -71,7 +71,7 @@ void __add_after_all_priority(queueItem *firstItem, queueItem *newItem){
 
 queueItem *__create_ticket(int isPriority){
     int ticketNumber = __generate_ticket_number();
-    return __newQueueItem(ticketNumber, isPriority);
+    return __new_queue_item(ticketNumber, isPriority);
 }
 
 char *__get_type_attendance_description(int isPriority){
