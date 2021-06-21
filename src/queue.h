@@ -12,8 +12,8 @@ struct queueItem{
 queueItem *firstItem;
 queueItem *lastItem;
 
-void generate(void);
-void call_next(void);
+void generate(int isPriority);
+void call_next(int giche_number);
 void print_board(void);
 
 #endif //QUEUE_H_INCLUDED

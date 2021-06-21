@@ -51,6 +51,34 @@ int get_menu_option(){
     return value;
 }
 
+int __get_priority(){
+    char *message = "Digite o tipo de atendimento.\n\t0 - Normal\n\t1 - Prioritario\nAtendimento: ";
+    int value;
+    printf("%s", message);
+    fflush(stdin);
+    scanf("%d", &value);
+    printf("\n");
+    if (value > 1 || value < 0){
+        printf("Os valores devem ser 0 ou 1! Tente Novamente!\n");
+        value = __get_priority();
+    }
+    return value;
+}
+
+int __get_giche(){
+    int value;
+    printf("Por favor digite o giche: ");
+    fflush(stdin);
+    scanf("%d", &value);
+    printf("\n");
+    if (value < 1){
+        printf("O valor deve ser maior ou igual a 1.\n");
+        value = __get_giche();
+    }    
+    return value;
+}
+
+
 
 int chosen_menu(){
     int option = get_menu_option();
@@ -58,11 +86,11 @@ int chosen_menu(){
     switch (option)
     {
     case 1:
-        generate();
+        generate(__get_priority());
         print_new_item();
         break;
     case 2:
-        call_next();
+        call_next(__get_giche());
         break;
     case 3:
         print_board();
@@ -85,3 +113,4 @@ void execute_menu(){
 int main() {
     execute_menu();
 }
+
